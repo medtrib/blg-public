@@ -12,7 +12,7 @@ import "openapiv3/annotations.proto";
 import "google/protobuf/empty.proto";
 
 
-option go_package = "github.com/medtrib/blg-log/api/log/v1";
+option go_package = "github.com/medtrib/blg-public/api/log/v1";
 
 option (openapi.v3.document) = {
     info: {

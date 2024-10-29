@@ -4,7 +4,7 @@ package api.sms.v1;
 
 import "sms/v1/common.proto";
 import "google/api/annotations.proto";
-option go_package = "github.com/medtrib/blg-ext/api/sms/v1;v1";
+option go_package = "github.com/medtrib/blg-public/api/sms/v1;v1";
 option java_multiple_files = true;
 option java_package = "api.sms.v1";
 

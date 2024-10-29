@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-http v2.8.1
 // - protoc             v5.28.2
-// source: authorization/v1/authorization.proto
+// source: auth/v1/authorization.proto
 
-package authorization
+package auth
 
 import (
 	context "context"
@@ -20,33 +20,33 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
-const OperationAuthorizationServiceCheckAuthorization = "/authorization.v1.AuthorizationService/CheckAuthorization"
-const OperationAuthorizationServiceCreateApi = "/authorization.v1.AuthorizationService/CreateApi"
-const OperationAuthorizationServiceCreateMenu = "/authorization.v1.AuthorizationService/CreateMenu"
-const OperationAuthorizationServiceCreateRole = "/authorization.v1.AuthorizationService/CreateRole"
-const OperationAuthorizationServiceDeleteApi = "/authorization.v1.AuthorizationService/DeleteApi"
-const OperationAuthorizationServiceDeleteMenu = "/authorization.v1.AuthorizationService/DeleteMenu"
-const OperationAuthorizationServiceDeleteRole = "/authorization.v1.AuthorizationService/DeleteRole"
-const OperationAuthorizationServiceDeleteRoleForUser = "/authorization.v1.AuthorizationService/DeleteRoleForUser"
-const OperationAuthorizationServiceDeleteRolesForUser = "/authorization.v1.AuthorizationService/DeleteRolesForUser"
-const OperationAuthorizationServiceGetApiList = "/authorization.v1.AuthorizationService/GetApiList"
-const OperationAuthorizationServiceGetApiListAll = "/authorization.v1.AuthorizationService/GetApiListAll"
-const OperationAuthorizationServiceGetMenuAll = "/authorization.v1.AuthorizationService/GetMenuAll"
-const OperationAuthorizationServiceGetMenuTree = "/authorization.v1.AuthorizationService/GetMenuTree"
-const OperationAuthorizationServiceGetPolicies = "/authorization.v1.AuthorizationService/GetPolicies"
-const OperationAuthorizationServiceGetRoleAll = "/authorization.v1.AuthorizationService/GetRoleAll"
-const OperationAuthorizationServiceGetRoleMenu = "/authorization.v1.AuthorizationService/GetRoleMenu"
-const OperationAuthorizationServiceGetRoleMenuBtn = "/authorization.v1.AuthorizationService/GetRoleMenuBtn"
-const OperationAuthorizationServiceGetRoleMenuTree = "/authorization.v1.AuthorizationService/GetRoleMenuTree"
-const OperationAuthorizationServiceGetRolesForUser = "/authorization.v1.AuthorizationService/GetRolesForUser"
-const OperationAuthorizationServiceGetUsersForRole = "/authorization.v1.AuthorizationService/GetUsersForRole"
-const OperationAuthorizationServiceSaveRoleMenu = "/authorization.v1.AuthorizationService/SaveRoleMenu"
-const OperationAuthorizationServiceSaveRoleMenuBtn = "/authorization.v1.AuthorizationService/SaveRoleMenuBtn"
-const OperationAuthorizationServiceSetRolesForUser = "/authorization.v1.AuthorizationService/SetRolesForUser"
-const OperationAuthorizationServiceUpdateApi = "/authorization.v1.AuthorizationService/UpdateApi"
-const OperationAuthorizationServiceUpdateMenu = "/authorization.v1.AuthorizationService/UpdateMenu"
-const OperationAuthorizationServiceUpdatePolicies = "/authorization.v1.AuthorizationService/UpdatePolicies"
-const OperationAuthorizationServiceUpdateRole = "/authorization.v1.AuthorizationService/UpdateRole"
+const OperationAuthorizationServiceCheckAuthorization = "/auth.v1.AuthorizationService/CheckAuthorization"
+const OperationAuthorizationServiceCreateApi = "/auth.v1.AuthorizationService/CreateApi"
+const OperationAuthorizationServiceCreateMenu = "/auth.v1.AuthorizationService/CreateMenu"
+const OperationAuthorizationServiceCreateRole = "/auth.v1.AuthorizationService/CreateRole"
+const OperationAuthorizationServiceDeleteApi = "/auth.v1.AuthorizationService/DeleteApi"
+const OperationAuthorizationServiceDeleteMenu = "/auth.v1.AuthorizationService/DeleteMenu"
+const OperationAuthorizationServiceDeleteRole = "/auth.v1.AuthorizationService/DeleteRole"
+const OperationAuthorizationServiceDeleteRoleForUser = "/auth.v1.AuthorizationService/DeleteRoleForUser"
+const OperationAuthorizationServiceDeleteRolesForUser = "/auth.v1.AuthorizationService/DeleteRolesForUser"
+const OperationAuthorizationServiceGetApiList = "/auth.v1.AuthorizationService/GetApiList"
+const OperationAuthorizationServiceGetApiListAll = "/auth.v1.AuthorizationService/GetApiListAll"
+const OperationAuthorizationServiceGetMenuAll = "/auth.v1.AuthorizationService/GetMenuAll"
+const OperationAuthorizationServiceGetMenuTree = "/auth.v1.AuthorizationService/GetMenuTree"
+const OperationAuthorizationServiceGetPolicies = "/auth.v1.AuthorizationService/GetPolicies"
+const OperationAuthorizationServiceGetRoleAll = "/auth.v1.AuthorizationService/GetRoleAll"
+const OperationAuthorizationServiceGetRoleMenu = "/auth.v1.AuthorizationService/GetRoleMenu"
+const OperationAuthorizationServiceGetRoleMenuBtn = "/auth.v1.AuthorizationService/GetRoleMenuBtn"
+const OperationAuthorizationServiceGetRoleMenuTree = "/auth.v1.AuthorizationService/GetRoleMenuTree"
+const OperationAuthorizationServiceGetRolesForUser = "/auth.v1.AuthorizationService/GetRolesForUser"
+const OperationAuthorizationServiceGetUsersForRole = "/auth.v1.AuthorizationService/GetUsersForRole"
+const OperationAuthorizationServiceSaveRoleMenu = "/auth.v1.AuthorizationService/SaveRoleMenu"
+const OperationAuthorizationServiceSaveRoleMenuBtn = "/auth.v1.AuthorizationService/SaveRoleMenuBtn"
+const OperationAuthorizationServiceSetRolesForUser = "/auth.v1.AuthorizationService/SetRolesForUser"
+const OperationAuthorizationServiceUpdateApi = "/auth.v1.AuthorizationService/UpdateApi"
+const OperationAuthorizationServiceUpdateMenu = "/auth.v1.AuthorizationService/UpdateMenu"
+const OperationAuthorizationServiceUpdatePolicies = "/auth.v1.AuthorizationService/UpdatePolicies"
+const OperationAuthorizationServiceUpdateRole = "/auth.v1.AuthorizationService/UpdateRole"
 
 type AuthorizationServiceHTTPServer interface {
 	// CheckAuthorization 检查权限

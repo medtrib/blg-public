@@ -12,7 +12,7 @@ import "validate/validate.proto";
 
 import "openapiv3/annotations.proto";
 
-option go_package = "github.com/medtrib/kbk-oss/api/oss/v1";
+option go_package = "github.com/medtrib/blg-public/api/oss/v1";
 
 option (openapi.v3.document) = {
     info: {

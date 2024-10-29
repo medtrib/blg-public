@@ -7,10 +7,10 @@
 package v1
 
 import (
-	v1 "blg-ext/api/ext/v1"
 	context "context"
 	http "github.com/go-kratos/kratos/v2/transport/http"
 	binding "github.com/go-kratos/kratos/v2/transport/http/binding"
+	v1 "github.com/medtrib/blg-public/api/oss/v1"
 )
 
 // This is a compile-time assertion to ensure that this generated file

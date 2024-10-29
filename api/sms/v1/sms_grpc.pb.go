@@ -7,8 +7,8 @@
 package v1
 
 import (
-	v1 "blg-ext/api/ext/v1"
 	context "context"
+	v1 "github.com/medtrib/blg-public/api/oss/v1"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

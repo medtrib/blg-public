@@ -1,7 +1,7 @@
 package encryptHelper
 
 import (
-	"github.com/medtrib/kbk-administrator/pkg/utils/stringHelper"
+	"github.com/medtrib/blg-public/pkg/utils/stringHelper"
 )
 
 // HashPassword 密码加密

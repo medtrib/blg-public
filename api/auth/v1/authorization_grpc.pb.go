@@ -4,9 +4,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.2
-// source: authorization/v1/authorization.proto
+// source: auth/v1/authorization.proto
 
-package authorization
+package auth
 
 import (
 	context "context"
@@ -22,33 +22,33 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthorizationService_CheckAuthorization_FullMethodName = "/authorization.v1.AuthorizationService/CheckAuthorization"
-	AuthorizationService_GetRoleAll_FullMethodName         = "/authorization.v1.AuthorizationService/GetRoleAll"
-	AuthorizationService_CreateRole_FullMethodName         = "/authorization.v1.AuthorizationService/CreateRole"
-	AuthorizationService_UpdateRole_FullMethodName         = "/authorization.v1.AuthorizationService/UpdateRole"
-	AuthorizationService_DeleteRole_FullMethodName         = "/authorization.v1.AuthorizationService/DeleteRole"
-	AuthorizationService_GetRolesForUser_FullMethodName    = "/authorization.v1.AuthorizationService/GetRolesForUser"
-	AuthorizationService_GetUsersForRole_FullMethodName    = "/authorization.v1.AuthorizationService/GetUsersForRole"
-	AuthorizationService_SetRolesForUser_FullMethodName    = "/authorization.v1.AuthorizationService/SetRolesForUser"
-	AuthorizationService_DeleteRoleForUser_FullMethodName  = "/authorization.v1.AuthorizationService/DeleteRoleForUser"
-	AuthorizationService_DeleteRolesForUser_FullMethodName = "/authorization.v1.AuthorizationService/DeleteRolesForUser"
-	AuthorizationService_GetPolicies_FullMethodName        = "/authorization.v1.AuthorizationService/GetPolicies"
-	AuthorizationService_UpdatePolicies_FullMethodName     = "/authorization.v1.AuthorizationService/UpdatePolicies"
-	AuthorizationService_GetApiListAll_FullMethodName      = "/authorization.v1.AuthorizationService/GetApiListAll"
-	AuthorizationService_GetApiList_FullMethodName         = "/authorization.v1.AuthorizationService/GetApiList"
-	AuthorizationService_CreateApi_FullMethodName          = "/authorization.v1.AuthorizationService/CreateApi"
-	AuthorizationService_UpdateApi_FullMethodName          = "/authorization.v1.AuthorizationService/UpdateApi"
-	AuthorizationService_DeleteApi_FullMethodName          = "/authorization.v1.AuthorizationService/DeleteApi"
-	AuthorizationService_GetMenuAll_FullMethodName         = "/authorization.v1.AuthorizationService/GetMenuAll"
-	AuthorizationService_GetMenuTree_FullMethodName        = "/authorization.v1.AuthorizationService/GetMenuTree"
-	AuthorizationService_CreateMenu_FullMethodName         = "/authorization.v1.AuthorizationService/CreateMenu"
-	AuthorizationService_UpdateMenu_FullMethodName         = "/authorization.v1.AuthorizationService/UpdateMenu"
-	AuthorizationService_DeleteMenu_FullMethodName         = "/authorization.v1.AuthorizationService/DeleteMenu"
-	AuthorizationService_GetRoleMenuTree_FullMethodName    = "/authorization.v1.AuthorizationService/GetRoleMenuTree"
-	AuthorizationService_GetRoleMenu_FullMethodName        = "/authorization.v1.AuthorizationService/GetRoleMenu"
-	AuthorizationService_SaveRoleMenu_FullMethodName       = "/authorization.v1.AuthorizationService/SaveRoleMenu"
-	AuthorizationService_GetRoleMenuBtn_FullMethodName     = "/authorization.v1.AuthorizationService/GetRoleMenuBtn"
-	AuthorizationService_SaveRoleMenuBtn_FullMethodName    = "/authorization.v1.AuthorizationService/SaveRoleMenuBtn"
+	AuthorizationService_CheckAuthorization_FullMethodName = "/auth.v1.AuthorizationService/CheckAuthorization"
+	AuthorizationService_GetRoleAll_FullMethodName         = "/auth.v1.AuthorizationService/GetRoleAll"
+	AuthorizationService_CreateRole_FullMethodName         = "/auth.v1.AuthorizationService/CreateRole"
+	AuthorizationService_UpdateRole_FullMethodName         = "/auth.v1.AuthorizationService/UpdateRole"
+	AuthorizationService_DeleteRole_FullMethodName         = "/auth.v1.AuthorizationService/DeleteRole"
+	AuthorizationService_GetRolesForUser_FullMethodName    = "/auth.v1.AuthorizationService/GetRolesForUser"
+	AuthorizationService_GetUsersForRole_FullMethodName    = "/auth.v1.AuthorizationService/GetUsersForRole"
+	AuthorizationService_SetRolesForUser_FullMethodName    = "/auth.v1.AuthorizationService/SetRolesForUser"
+	AuthorizationService_DeleteRoleForUser_FullMethodName  = "/auth.v1.AuthorizationService/DeleteRoleForUser"
+	AuthorizationService_DeleteRolesForUser_FullMethodName = "/auth.v1.AuthorizationService/DeleteRolesForUser"
+	AuthorizationService_GetPolicies_FullMethodName        = "/auth.v1.AuthorizationService/GetPolicies"
+	AuthorizationService_UpdatePolicies_FullMethodName     = "/auth.v1.AuthorizationService/UpdatePolicies"
+	AuthorizationService_GetApiListAll_FullMethodName      = "/auth.v1.AuthorizationService/GetApiListAll"
+	AuthorizationService_GetApiList_FullMethodName         = "/auth.v1.AuthorizationService/GetApiList"
+	AuthorizationService_CreateApi_FullMethodName          = "/auth.v1.AuthorizationService/CreateApi"
+	AuthorizationService_UpdateApi_FullMethodName          = "/auth.v1.AuthorizationService/UpdateApi"
+	AuthorizationService_DeleteApi_FullMethodName          = "/auth.v1.AuthorizationService/DeleteApi"
+	AuthorizationService_GetMenuAll_FullMethodName         = "/auth.v1.AuthorizationService/GetMenuAll"
+	AuthorizationService_GetMenuTree_FullMethodName        = "/auth.v1.AuthorizationService/GetMenuTree"
+	AuthorizationService_CreateMenu_FullMethodName         = "/auth.v1.AuthorizationService/CreateMenu"
+	AuthorizationService_UpdateMenu_FullMethodName         = "/auth.v1.AuthorizationService/UpdateMenu"
+	AuthorizationService_DeleteMenu_FullMethodName         = "/auth.v1.AuthorizationService/DeleteMenu"
+	AuthorizationService_GetRoleMenuTree_FullMethodName    = "/auth.v1.AuthorizationService/GetRoleMenuTree"
+	AuthorizationService_GetRoleMenu_FullMethodName        = "/auth.v1.AuthorizationService/GetRoleMenu"
+	AuthorizationService_SaveRoleMenu_FullMethodName       = "/auth.v1.AuthorizationService/SaveRoleMenu"
+	AuthorizationService_GetRoleMenuBtn_FullMethodName     = "/auth.v1.AuthorizationService/GetRoleMenuBtn"
+	AuthorizationService_SaveRoleMenuBtn_FullMethodName    = "/auth.v1.AuthorizationService/SaveRoleMenuBtn"
 )
 
 // AuthorizationServiceClient is the client API for AuthorizationService service.
@@ -1053,7 +1053,7 @@ func _AuthorizationService_SaveRoleMenuBtn_Handler(srv interface{}, ctx context.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AuthorizationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "authorization.v1.AuthorizationService",
+	ServiceName: "auth.v1.AuthorizationService",
 	HandlerType: (*AuthorizationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -1166,5 +1166,5 @@ var AuthorizationService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "authorization/v1/authorization.proto",
+	Metadata: "auth/v1/authorization.proto",
 }

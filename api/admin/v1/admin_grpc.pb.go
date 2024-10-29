@@ -4,7 +4,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.2
-// source: administrator/v1/administrator.proto
+// source: admin/v1/admin.proto
 
 package v1
 
@@ -22,15 +22,15 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdministratorService_GetAdministratorList_FullMethodName        = "/administrator.v1.AdministratorService/GetAdministratorList"
-	AdministratorService_CreateAdministrator_FullMethodName         = "/administrator.v1.AdministratorService/CreateAdministrator"
-	AdministratorService_UpdateAdministrator_FullMethodName         = "/administrator.v1.AdministratorService/UpdateAdministrator"
-	AdministratorService_GetAdministrator_FullMethodName            = "/administrator.v1.AdministratorService/GetAdministrator"
-	AdministratorService_DeleteAdministrator_FullMethodName         = "/administrator.v1.AdministratorService/DeleteAdministrator"
-	AdministratorService_RecoverAdministrator_FullMethodName        = "/administrator.v1.AdministratorService/RecoverAdministrator"
-	AdministratorService_VerifyAdministratorPassword_FullMethodName = "/administrator.v1.AdministratorService/VerifyAdministratorPassword"
-	AdministratorService_AdministratorStatusChange_FullMethodName   = "/administrator.v1.AdministratorService/AdministratorStatusChange"
-	AdministratorService_AdministratorLoginSuccess_FullMethodName   = "/administrator.v1.AdministratorService/AdministratorLoginSuccess"
+	AdministratorService_GetAdministratorList_FullMethodName        = "/admin.v1.AdministratorService/GetAdministratorList"
+	AdministratorService_CreateAdministrator_FullMethodName         = "/admin.v1.AdministratorService/CreateAdministrator"
+	AdministratorService_UpdateAdministrator_FullMethodName         = "/admin.v1.AdministratorService/UpdateAdministrator"
+	AdministratorService_GetAdministrator_FullMethodName            = "/admin.v1.AdministratorService/GetAdministrator"
+	AdministratorService_DeleteAdministrator_FullMethodName         = "/admin.v1.AdministratorService/DeleteAdministrator"
+	AdministratorService_RecoverAdministrator_FullMethodName        = "/admin.v1.AdministratorService/RecoverAdministrator"
+	AdministratorService_VerifyAdministratorPassword_FullMethodName = "/admin.v1.AdministratorService/VerifyAdministratorPassword"
+	AdministratorService_AdministratorStatusChange_FullMethodName   = "/admin.v1.AdministratorService/AdministratorStatusChange"
+	AdministratorService_AdministratorLoginSuccess_FullMethodName   = "/admin.v1.AdministratorService/AdministratorLoginSuccess"
 )
 
 // AdministratorServiceClient is the client API for AdministratorService service.
@@ -403,7 +403,7 @@ func _AdministratorService_AdministratorLoginSuccess_Handler(srv interface{}, ct
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AdministratorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "administrator.v1.AdministratorService",
+	ServiceName: "admin.v1.AdministratorService",
 	HandlerType: (*AdministratorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -444,5 +444,5 @@ var AdministratorService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "administrator/v1/administrator.proto",
+	Metadata: "admin/v1/admin.proto",
 }

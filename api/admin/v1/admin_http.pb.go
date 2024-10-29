@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-http v2.8.1
 // - protoc             v5.28.2
-// source: administrator/v1/administrator.proto
+// source: admin/v1/admin.proto
 
 package v1
 
@@ -20,15 +20,15 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
-const OperationAdministratorServiceAdministratorLoginSuccess = "/administrator.v1.AdministratorService/AdministratorLoginSuccess"
-const OperationAdministratorServiceAdministratorStatusChange = "/administrator.v1.AdministratorService/AdministratorStatusChange"
-const OperationAdministratorServiceCreateAdministrator = "/administrator.v1.AdministratorService/CreateAdministrator"
-const OperationAdministratorServiceDeleteAdministrator = "/administrator.v1.AdministratorService/DeleteAdministrator"
-const OperationAdministratorServiceGetAdministrator = "/administrator.v1.AdministratorService/GetAdministrator"
-const OperationAdministratorServiceGetAdministratorList = "/administrator.v1.AdministratorService/GetAdministratorList"
-const OperationAdministratorServiceRecoverAdministrator = "/administrator.v1.AdministratorService/RecoverAdministrator"
-const OperationAdministratorServiceUpdateAdministrator = "/administrator.v1.AdministratorService/UpdateAdministrator"
-const OperationAdministratorServiceVerifyAdministratorPassword = "/administrator.v1.AdministratorService/VerifyAdministratorPassword"
+const OperationAdministratorServiceAdministratorLoginSuccess = "/admin.v1.AdministratorService/AdministratorLoginSuccess"
+const OperationAdministratorServiceAdministratorStatusChange = "/admin.v1.AdministratorService/AdministratorStatusChange"
+const OperationAdministratorServiceCreateAdministrator = "/admin.v1.AdministratorService/CreateAdministrator"
+const OperationAdministratorServiceDeleteAdministrator = "/admin.v1.AdministratorService/DeleteAdministrator"
+const OperationAdministratorServiceGetAdministrator = "/admin.v1.AdministratorService/GetAdministrator"
+const OperationAdministratorServiceGetAdministratorList = "/admin.v1.AdministratorService/GetAdministratorList"
+const OperationAdministratorServiceRecoverAdministrator = "/admin.v1.AdministratorService/RecoverAdministrator"
+const OperationAdministratorServiceUpdateAdministrator = "/admin.v1.AdministratorService/UpdateAdministrator"
+const OperationAdministratorServiceVerifyAdministratorPassword = "/admin.v1.AdministratorService/VerifyAdministratorPassword"
 
 type AdministratorServiceHTTPServer interface {
 	AdministratorLoginSuccess(context.Context, *AdministratorLoginSuccessReq) (*emptypb.Empty, error)
@@ -53,14 +53,14 @@ type AdministratorServiceHTTPServer interface {
 func RegisterAdministratorServiceHTTPServer(s *http.Server, srv AdministratorServiceHTTPServer) {
 	r := s.Route("/")
 	r.GET("/administrators", _AdministratorService_GetAdministratorList0_HTTP_Handler(srv))
-	r.POST("/administrator", _AdministratorService_CreateAdministrator0_HTTP_Handler(srv))
-	r.PUT("/administrator", _AdministratorService_UpdateAdministrator0_HTTP_Handler(srv))
-	r.GET("/administrator", _AdministratorService_GetAdministrator0_HTTP_Handler(srv))
-	r.DELETE("/administrator", _AdministratorService_DeleteAdministrator0_HTTP_Handler(srv))
-	r.PATCH("/administrator", _AdministratorService_RecoverAdministrator0_HTTP_Handler(srv))
-	r.POST("/administrator/password/verify", _AdministratorService_VerifyAdministratorPassword0_HTTP_Handler(srv))
-	r.PATCH("/administrator/status", _AdministratorService_AdministratorStatusChange0_HTTP_Handler(srv))
-	r.PATCH("/administrator/login/success", _AdministratorService_AdministratorLoginSuccess0_HTTP_Handler(srv))
+	r.POST("/admin", _AdministratorService_CreateAdministrator0_HTTP_Handler(srv))
+	r.PUT("/admin", _AdministratorService_UpdateAdministrator0_HTTP_Handler(srv))
+	r.GET("/admin", _AdministratorService_GetAdministrator0_HTTP_Handler(srv))
+	r.DELETE("/admin", _AdministratorService_DeleteAdministrator0_HTTP_Handler(srv))
+	r.PATCH("/admin", _AdministratorService_RecoverAdministrator0_HTTP_Handler(srv))
+	r.POST("/admin/password/verify", _AdministratorService_VerifyAdministratorPassword0_HTTP_Handler(srv))
+	r.PATCH("/admin/status", _AdministratorService_AdministratorStatusChange0_HTTP_Handler(srv))
+	r.PATCH("/admin/login/success", _AdministratorService_AdministratorLoginSuccess0_HTTP_Handler(srv))
 }
 
 func _AdministratorService_GetAdministratorList0_HTTP_Handler(srv AdministratorServiceHTTPServer) func(ctx http.Context) error {
@@ -274,7 +274,7 @@ func NewAdministratorServiceHTTPClient(client *http.Client) AdministratorService
 
 func (c *AdministratorServiceHTTPClientImpl) AdministratorLoginSuccess(ctx context.Context, in *AdministratorLoginSuccessReq, opts ...http.CallOption) (*emptypb.Empty, error) {
 	var out emptypb.Empty
-	pattern := "/administrator/login/success"
+	pattern := "/admin/login/success"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAdministratorServiceAdministratorLoginSuccess))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -287,7 +287,7 @@ func (c *AdministratorServiceHTTPClientImpl) AdministratorLoginSuccess(ctx conte
 
 func (c *AdministratorServiceHTTPClientImpl) AdministratorStatusChange(ctx context.Context, in *AdministratorStatusChangeReq, opts ...http.CallOption) (*emptypb.Empty, error) {
 	var out emptypb.Empty
-	pattern := "/administrator/status"
+	pattern := "/admin/status"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAdministratorServiceAdministratorStatusChange))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -300,7 +300,7 @@ func (c *AdministratorServiceHTTPClientImpl) AdministratorStatusChange(ctx conte
 
 func (c *AdministratorServiceHTTPClientImpl) CreateAdministrator(ctx context.Context, in *CreateAdministratorReq, opts ...http.CallOption) (*Administrator, error) {
 	var out Administrator
-	pattern := "/administrator"
+	pattern := "/admin"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAdministratorServiceCreateAdministrator))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -313,7 +313,7 @@ func (c *AdministratorServiceHTTPClientImpl) CreateAdministrator(ctx context.Con
 
 func (c *AdministratorServiceHTTPClientImpl) DeleteAdministrator(ctx context.Context, in *DeleteAdministratorReq, opts ...http.CallOption) (*emptypb.Empty, error) {
 	var out emptypb.Empty
-	pattern := "/administrator"
+	pattern := "/admin"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAdministratorServiceDeleteAdministrator))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -326,7 +326,7 @@ func (c *AdministratorServiceHTTPClientImpl) DeleteAdministrator(ctx context.Con
 
 func (c *AdministratorServiceHTTPClientImpl) GetAdministrator(ctx context.Context, in *GetAdministratorReq, opts ...http.CallOption) (*Administrator, error) {
 	var out Administrator
-	pattern := "/administrator"
+	pattern := "/admin"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAdministratorServiceGetAdministrator))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -352,7 +352,7 @@ func (c *AdministratorServiceHTTPClientImpl) GetAdministratorList(ctx context.Co
 
 func (c *AdministratorServiceHTTPClientImpl) RecoverAdministrator(ctx context.Context, in *RecoverAdministratorReq, opts ...http.CallOption) (*emptypb.Empty, error) {
 	var out emptypb.Empty
-	pattern := "/administrator"
+	pattern := "/admin"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAdministratorServiceRecoverAdministrator))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -365,7 +365,7 @@ func (c *AdministratorServiceHTTPClientImpl) RecoverAdministrator(ctx context.Co
 
 func (c *AdministratorServiceHTTPClientImpl) UpdateAdministrator(ctx context.Context, in *UpdateAdministratorReq, opts ...http.CallOption) (*emptypb.Empty, error) {
 	var out emptypb.Empty
-	pattern := "/administrator"
+	pattern := "/admin"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAdministratorServiceUpdateAdministrator))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -378,7 +378,7 @@ func (c *AdministratorServiceHTTPClientImpl) UpdateAdministrator(ctx context.Con
 
 func (c *AdministratorServiceHTTPClientImpl) VerifyAdministratorPassword(ctx context.Context, in *VerifyAdministratorPasswordReq, opts ...http.CallOption) (*emptypb.Empty, error) {
 	var out emptypb.Empty
-	pattern := "/administrator/password/verify"
+	pattern := "/admin/password/verify"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAdministratorServiceVerifyAdministratorPassword))
 	opts = append(opts, http.PathTemplate(pattern))

@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package authorization.v1;
+package admin.v1;
 
 import "errors/errors.proto";
 
-option go_package = "github.com/medtrib/blg-auth/api/v1/authorization";
+option go_package = "github.com/medtrib/blg-admin/api/admin/v1";
 
 enum ErrorReason {
   option (errors.default_code) = 500;

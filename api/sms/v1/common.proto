@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api.sms.v1;
 
-option go_package = "blg-ext/api/ext/v1;v1";
+option go_package = "github.com/medtrib/blg-public/api/oss/v1;v1";
 option java_multiple_files = true;
 option java_package = "api.sms.v1";
 

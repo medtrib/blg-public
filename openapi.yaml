@@ -1,0 +1,119 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: UserAuth API
+    description: 用户认证管理
+    version: 0.0.1
+paths:
+    /v1/user/bindPhone:
+        post:
+            tags:
+                - UserAuth
+            description: 用户绑定手机号
+            operationId: UserAuth_UserBingPhone
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.user.v1.UserBingPhoneRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.user.v1.Reply'
+    /v1/user/reg:
+        post:
+            tags:
+                - UserAuth
+            description: 用户注册(登录)
+            operationId: UserAuth_UserReg
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.user.v1.UserRegRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.user.v1.Reply'
+    /v1/user/userMergeAccountRequest:
+        post:
+            tags:
+                - UserAuth
+            description: 账号合并功能
+            operationId: UserAuth_UserMergeAccount
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.user.v1.UserMergeAccountRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.user.v1.Reply'
+components:
+    schemas:
+        api.user.v1.Reply:
+            type: object
+            properties:
+                statusCode:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    type: string
+        api.user.v1.UserBingPhoneRequest:
+            type: object
+            properties:
+                openId:
+                    type: string
+                    description: 用户标识，不能为空
+                code:
+                    type: string
+                    description: 手机号获取凭证，不能为空
+                appId:
+                    type: string
+                    description: 应用AppId，不能为空
+            description: 用户绑定手机号
+        api.user.v1.UserMergeAccountRequest:
+            type: object
+            properties:
+                phone:
+                    type: string
+                    description: 要合并的手机号
+                openId:
+                    type: string
+                    description: 用户OpenID
+                appId:
+                    type: string
+                    description: 应用AppId，不能为空
+            description: 用户合并账号
+        api.user.v1.UserRegRequest:
+            type: object
+            properties:
+                sn:
+                    type: string
+                    description: 设备编号，不能为空
+                code:
+                    type: string
+                    description: 临时登录凭证，不能为空
+                appId:
+                    type: string
+                    description: 应用AppId，不能为空
+            description: 注册用户必须参数
+tags:
+    - name: UserAuth

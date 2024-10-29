@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package api.user.v1;
+import "user/v1/common.proto";
+import "google/api/annotations.proto";
+option go_package = "blg-user/api/user/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.user.v1";
+
+// 用户认证管理
+service UserAuth {
+	// 用户注册(登录)
+	rpc UserReg (UserRegRequest) returns (Reply){
+		option (google.api.http) = {
+			post: "/v1/user/reg"
+			body: "*"
+		};
+	}
+	// 用户绑定手机号
+	rpc UserBingPhone(UserBingPhoneRequest) returns (Reply) {
+		option (google.api.http) = {
+			post: "/v1/user/bindPhone"
+			body: "*"
+		};
+	}
+	// 账号合并功能
+	rpc UserMergeAccount(UserMergeAccountRequest) returns (Reply){
+		option (google.api.http) = {
+			post: "/v1/user/userMergeAccountRequest"
+			body: "*"
+		};
+	}
+}
+
+// 用户合并账号
+message UserMergeAccountRequest {
+	// 要合并的手机号
+	string phone = 1;
+	// 用户OpenID
+	string openId = 2;
+	// 应用AppId，不能为空
+	string appId = 3;
+}
+
+
+// 用户绑定手机号
+message UserBingPhoneRequest {
+	// 用户标识，不能为空
+	string openId = 1;
+	// 手机号获取凭证，不能为空
+	string code = 2;
+	// 应用AppId，不能为空
+	string appId = 3;
+}
+
+// 注册用户必须参数
+message UserRegRequest {
+	// 设备编号，不能为空
+	string sn = 1;
+	// 临时登录凭证，不能为空
+	string code = 2;
+	// 应用AppId，不能为空
+	string appId = 3;
+}

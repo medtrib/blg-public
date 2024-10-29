@@ -148,7 +148,7 @@ func getApiName(ctx context.Context, domain string, method string, operation str
 		apiNameMapStrBytes, _ := json.Marshal(apiNameMap)
 		json.Unmarshal(apiNameMapStrBytes, &apiNameMap)
 		apiNameMapStr = string(apiNameMapStrBytes)
-		redisHelper.SaveRedisCache(redisCli, key, apiNameMapStr, 120*time.Second)
+		redisHelper.SaveRedisCacheWithExpiration(redisCli, key, apiNameMapStr, 120*time.Second)
 	}
 	json.Unmarshal([]byte(apiNameMapStr), &apiNameMap)
 	apiName := apiNameMap[domain+"-"+method+"-"+operation]
@@ -161,7 +161,7 @@ func getApiName(ctx context.Context, domain string, method string, operation str
 			}
 			apiNameMapStrBytes, _ := json.Marshal(apiNameMap)
 			json.Unmarshal(apiNameMapStrBytes, &apiNameMap)
-			redisHelper.SaveRedisCache(redisCli, key, string(apiNameMapStrBytes), 120*time.Second)
+			redisHelper.SaveRedisCacheWithExpiration(redisCli, key, string(apiNameMapStrBytes), 120*time.Second)
 			apiName = apiNameMap[domain+"-"+method+"-"+operation]
 			if apiName == "" {
 				return "", errors.BadRequest("BAD REQUEST", domain+"-"+method+"-"+operation+" api not found")

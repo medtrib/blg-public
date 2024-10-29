@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"github.com/go-redis/redis"
 	"math"
+	"time"
 )
 
-// GetRedisCacheKey 根据参数获取redis key
+// GetRedisCacheKey 根据参数获取 Redis key
 func GetRedisCacheKeyByParams(module string, params map[string]interface{}) string {
 	cacheKey := module + ":"
 	if len(params) == 0 {
@@ -18,9 +19,14 @@ func GetRedisCacheKeyByParams(module string, params map[string]interface{}) stri
 	return cacheKey
 }
 
-// SaveRedisCache 缓存信息
-func SaveRedisCache(client redis.Cmdable, key, value string) error {
+// SaveRedisCacheWithoutExpiration 缓存信息（无有效期）
+func SaveRedisCacheWithoutExpiration(client redis.Cmdable, key, value string) error {
 	return client.Set(key, value, 0).Err()
+}
+
+// SaveRedisCacheWithExpiration 缓存信息，并设置有效期
+func SaveRedisCacheWithExpiration(client redis.Cmdable, key, value string, expiration time.Duration) error {
+	return client.Set(key, value, expiration).Err()
 }
 
 // GetRedisCache 获取信息缓存

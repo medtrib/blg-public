@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api.sms.v1;
+
+import "sms/v1/common.proto";
+import "google/api/annotations.proto";
+option go_package = "github.com/medtrib/blg-ext/api/sms/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.sms.v1";
+
+service Sms {
+	// 发送短信
+	rpc SendSms (SendSmsRequest) returns (Reply){
+		option (google.api.http) = {
+			post: "/v1/sms/sendSms"
+			body: "*"
+		};
+	}
+}
+
+// 发送短信参数
+message SendSmsRequest{
+	// 手机号
+	string phone = 1;
+	// 发送类型
+	string sms_type =2;
+}
+

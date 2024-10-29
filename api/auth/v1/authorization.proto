@@ -20,7 +20,7 @@ option (openapi.v3.document) = {
         contact: {
             name: "card",
             url: "",
-            email: "445864742@qq.com"
+            email: "5439028@qq.com"
         },
         description: "权限服务";
     },

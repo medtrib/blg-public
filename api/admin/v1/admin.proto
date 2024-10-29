@@ -20,7 +20,7 @@ option (openapi.v3.document) = {
         title: "管理员服务",
         version: "0.0.1",
         contact: {
-            name: "qi.zhou",
+            name: "teach.liu",
             url: "",
             email: ""
         },

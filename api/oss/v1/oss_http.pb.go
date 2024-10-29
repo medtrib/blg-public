@@ -32,11 +32,11 @@ type OSSHTTPServer interface {
 
 func RegisterOSSHTTPServer(s *http.Server, srv OSSHTTPServer) {
 	r := s.Route("/")
-	r.GET("/oss/sts/token", _OSS_GetOssStsToken0_HTTP_Handler(srv))
+	r.GET("/oss/sts/token", _OSS_GetOssStsToken1_HTTP_Handler(srv))
 	r.POST("/file/upload", _OSS_UploadFile0_HTTP_Handler(srv))
 }
 
-func _OSS_GetOssStsToken0_HTTP_Handler(srv OSSHTTPServer) func(ctx http.Context) error {
+func _OSS_GetOssStsToken1_HTTP_Handler(srv OSSHTTPServer) func(ctx http.Context) error {
 	return func(ctx http.Context) error {
 		var in emptypb.Empty
 		if err := ctx.BindQuery(&in); err != nil {

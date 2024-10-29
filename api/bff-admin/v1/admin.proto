@@ -51,6 +51,7 @@ service Admin {
         option (google.api.http) = {
             get:"/bff-admin/v1/administrators"
         };
+
     };
 
     // 管理员详情

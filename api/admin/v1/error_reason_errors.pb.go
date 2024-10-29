@@ -11,50 +11,50 @@ import (
 // is compatible with the kratos package it is being compiled against.
 const _ = errors.SupportPackageIsVersion1
 
-func IsRecordNotFound(err error) bool {
+func IsBffRecordNotFound(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_RECORD_NOT_FOUND.String() && e.Code == 404
+	return e.Reason == ErrorReason_BFF_RECORD_NOT_FOUND.String() && e.Code == 404
 }
 
-func ErrorRecordNotFound(format string, args ...interface{}) *errors.Error {
-	return errors.New(404, ErrorReason_RECORD_NOT_FOUND.String(), fmt.Sprintf(format, args...))
+func ErrorBffRecordNotFound(format string, args ...interface{}) *errors.Error {
+	return errors.New(404, ErrorReason_BFF_RECORD_NOT_FOUND.String(), fmt.Sprintf(format, args...))
 }
 
-func IsRecordAlreadyExists(err error) bool {
+func IsBffRecordAlreadyExists(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_RECORD_ALREADY_EXISTS.String() && e.Code == 400
+	return e.Reason == ErrorReason_BFF_RECORD_ALREADY_EXISTS.String() && e.Code == 400
 }
 
-func ErrorRecordAlreadyExists(format string, args ...interface{}) *errors.Error {
-	return errors.New(400, ErrorReason_RECORD_ALREADY_EXISTS.String(), fmt.Sprintf(format, args...))
+func ErrorBffRecordAlreadyExists(format string, args ...interface{}) *errors.Error {
+	return errors.New(400, ErrorReason_BFF_RECORD_ALREADY_EXISTS.String(), fmt.Sprintf(format, args...))
 }
 
-func IsBadRequest(err error) bool {
+func IsBffBadRequest(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_BAD_REQUEST.String() && e.Code == 400
+	return e.Reason == ErrorReason_BFF_BAD_REQUEST.String() && e.Code == 400
 }
 
-func ErrorBadRequest(format string, args ...interface{}) *errors.Error {
-	return errors.New(400, ErrorReason_BAD_REQUEST.String(), fmt.Sprintf(format, args...))
+func ErrorBffBadRequest(format string, args ...interface{}) *errors.Error {
+	return errors.New(400, ErrorReason_BFF_BAD_REQUEST.String(), fmt.Sprintf(format, args...))
 }
 
-func IsSystemError(err error) bool {
+func IsBffSystemError(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_SYSTEM_ERROR.String() && e.Code == 500
+	return e.Reason == ErrorReason_BFF_SYSTEM_ERROR.String() && e.Code == 500
 }
 
-func ErrorSystemError(format string, args ...interface{}) *errors.Error {
-	return errors.New(500, ErrorReason_SYSTEM_ERROR.String(), fmt.Sprintf(format, args...))
+func ErrorBffSystemError(format string, args ...interface{}) *errors.Error {
+	return errors.New(500, ErrorReason_BFF_SYSTEM_ERROR.String(), fmt.Sprintf(format, args...))
 }

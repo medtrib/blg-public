@@ -8,9 +8,9 @@ option go_package = "github.com/medtrib/blg-public/api/admin/v1";
 
 enum ErrorReason {
   option (errors.default_code) = 500;
-  RECORD_NOT_FOUND = 0 [(errors.code) = 404];
-  RECORD_ALREADY_EXISTS = 1 [(errors.code) = 400];
-  BAD_REQUEST = 2 [(errors.code) = 400];
-  SYSTEM_ERROR = 3 [(errors.code) = 500];
+  BFF_RECORD_NOT_FOUND = 0 [(errors.code) = 404];
+  BFF_RECORD_ALREADY_EXISTS = 1 [(errors.code) = 400];
+  BFF_BAD_REQUEST = 2 [(errors.code) = 400];
+  BFF_SYSTEM_ERROR = 3 [(errors.code) = 500];
 }
 

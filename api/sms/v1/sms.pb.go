@@ -7,7 +7,6 @@
 package v1
 
 import (
-	v1 "github.com/medtrib/blg-public/api/oss/v1"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -118,7 +117,7 @@ func file_sms_v1_sms_proto_rawDescGZIP() []byte {
 var file_sms_v1_sms_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_sms_v1_sms_proto_goTypes = []any{
 	(*SendSmsRequest)(nil), // 0: api.sms.v1.SendSmsRequest
-	(*v1.Reply)(nil),       // 1: api.sms.v1.Reply
+	(*Reply)(nil),          // 1: api.sms.v1.Reply
 }
 var file_sms_v1_sms_proto_depIdxs = []int32{
 	0, // 0: api.sms.v1.Sms.SendSms:input_type -> api.sms.v1.SendSmsRequest
@@ -135,6 +134,7 @@ func file_sms_v1_sms_proto_init() {
 	if File_sms_v1_sms_proto != nil {
 		return
 	}
+	file_sms_v1_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

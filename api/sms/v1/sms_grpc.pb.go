@@ -8,7 +8,6 @@ package v1
 
 import (
 	context "context"
-	v1 "github.com/medtrib/blg-public/api/oss/v1"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -28,7 +27,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SmsClient interface {
 	// 发送短信
-	SendSms(ctx context.Context, in *SendSmsRequest, opts ...grpc.CallOption) (*v1.Reply, error)
+	SendSms(ctx context.Context, in *SendSmsRequest, opts ...grpc.CallOption) (*Reply, error)
 }
 
 type smsClient struct {
@@ -39,9 +38,9 @@ func NewSmsClient(cc grpc.ClientConnInterface) SmsClient {
 	return &smsClient{cc}
 }
 
-func (c *smsClient) SendSms(ctx context.Context, in *SendSmsRequest, opts ...grpc.CallOption) (*v1.Reply, error) {
+func (c *smsClient) SendSms(ctx context.Context, in *SendSmsRequest, opts ...grpc.CallOption) (*Reply, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(v1.Reply)
+	out := new(Reply)
 	err := c.cc.Invoke(ctx, Sms_SendSms_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -54,7 +53,7 @@ func (c *smsClient) SendSms(ctx context.Context, in *SendSmsRequest, opts ...grp
 // for forward compatibility.
 type SmsServer interface {
 	// 发送短信
-	SendSms(context.Context, *SendSmsRequest) (*v1.Reply, error)
+	SendSms(context.Context, *SendSmsRequest) (*Reply, error)
 	mustEmbedUnimplementedSmsServer()
 }
 
@@ -65,7 +64,7 @@ type SmsServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSmsServer struct{}
 
-func (UnimplementedSmsServer) SendSms(context.Context, *SendSmsRequest) (*v1.Reply, error) {
+func (UnimplementedSmsServer) SendSms(context.Context, *SendSmsRequest) (*Reply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendSms not implemented")
 }
 func (UnimplementedSmsServer) mustEmbedUnimplementedSmsServer() {}

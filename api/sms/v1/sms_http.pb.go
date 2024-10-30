@@ -10,7 +10,6 @@ import (
 	context "context"
 	http "github.com/go-kratos/kratos/v2/transport/http"
 	binding "github.com/go-kratos/kratos/v2/transport/http/binding"
-	v1 "github.com/medtrib/blg-public/api/oss/v1"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -24,7 +23,7 @@ const OperationSmsSendSms = "/api.sms.v1.Sms/SendSms"
 
 type SmsHTTPServer interface {
 	// SendSms 发送短信
-	SendSms(context.Context, *SendSmsRequest) (*v1.Reply, error)
+	SendSms(context.Context, *SendSmsRequest) (*Reply, error)
 }
 
 func RegisterSmsHTTPServer(s *http.Server, srv SmsHTTPServer) {
@@ -49,13 +48,13 @@ func _Sms_SendSms0_HTTP_Handler(srv SmsHTTPServer) func(ctx http.Context) error 
 		if err != nil {
 			return err
 		}
-		reply := out.(*v1.Reply)
+		reply := out.(*Reply)
 		return ctx.Result(200, reply)
 	}
 }
 
 type SmsHTTPClient interface {
-	SendSms(ctx context.Context, req *SendSmsRequest, opts ...http.CallOption) (rsp *v1.Reply, err error)
+	SendSms(ctx context.Context, req *SendSmsRequest, opts ...http.CallOption) (rsp *Reply, err error)
 }
 
 type SmsHTTPClientImpl struct {
@@ -66,8 +65,8 @@ func NewSmsHTTPClient(client *http.Client) SmsHTTPClient {
 	return &SmsHTTPClientImpl{client}
 }
 
-func (c *SmsHTTPClientImpl) SendSms(ctx context.Context, in *SendSmsRequest, opts ...http.CallOption) (*v1.Reply, error) {
-	var out v1.Reply
+func (c *SmsHTTPClientImpl) SendSms(ctx context.Context, in *SendSmsRequest, opts ...http.CallOption) (*Reply, error) {
+	var out Reply
 	pattern := "/v1/sms/sendSms"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationSmsSendSms))

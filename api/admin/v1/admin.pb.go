@@ -1102,7 +1102,7 @@ func file_admin_v1_admin_proto_rawDescGZIP() []byte {
 
 var file_admin_v1_admin_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_admin_v1_admin_proto_goTypes = []any{
-	(*GetAdministratorListReq)(nil),        // 0: admin.v1.GetBffAdminListReq
+	(*GetAdministratorListReq)(nil),        // 0: admin.v1.GetAdministratorListReq
 	(*GetAdministratorListPageRes)(nil),    // 1: admin.v1.GetAdministratorListPageRes
 	(*Administrator)(nil),                  // 2: admin.v1.Administrator
 	(*CreateAdministratorReq)(nil),         // 3: admin.v1.CreateAdministratorReq
@@ -1117,9 +1117,9 @@ var file_admin_v1_admin_proto_goTypes = []any{
 	(*emptypb.Empty)(nil),                  // 12: google.protobuf.Empty
 }
 var file_admin_v1_admin_proto_depIdxs = []int32{
-	11, // 0: admin.v1.GetBffAdminListReq.status:type_name -> google.protobuf.BoolValue
+	11, // 0: admin.v1.GetAdministratorListReq.status:type_name -> google.protobuf.BoolValue
 	2,  // 1: admin.v1.GetAdministratorListPageRes.list:type_name -> admin.v1.Administrator
-	0,  // 2: admin.v1.AdministratorService.GetAdministratorList:input_type -> admin.v1.GetBffAdminListReq
+	0,  // 2: admin.v1.AdministratorService.GetAdministratorList:input_type -> admin.v1.GetAdministratorListReq
 	3,  // 3: admin.v1.AdministratorService.CreateAdministrator:input_type -> admin.v1.CreateAdministratorReq
 	4,  // 4: admin.v1.AdministratorService.UpdateAdministrator:input_type -> admin.v1.UpdateAdministratorReq
 	7,  // 5: admin.v1.AdministratorService.GetAdministrator:input_type -> admin.v1.GetAdministratorReq

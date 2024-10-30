@@ -2392,6 +2392,12 @@ components:
                 smsType:
                     type: string
                     description: 发送类型
+                code:
+                    type: string
+                    description: 验证码结果
+                uuid:
+                    type: string
+                    description: 验证码字段
             description: 发送短信参数
         api.user.v1.Reply:
             type: object

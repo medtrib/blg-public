@@ -24,5 +24,9 @@ message SendSmsRequest{
 	string phone = 1;
 	// 发送类型
 	string sms_type =2;
+	// 验证码结果
+	string code = 3;
+	// 验证码字段
+	string uuid = 4;
 }
 

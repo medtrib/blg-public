@@ -8,13 +8,19 @@ type StatusMessage struct {
 
 // 定义常量来表示 StatusCodes 的键
 const (
-	StatusSuccess       = "Success"
-	StatusError         = "Error"
-	StatusSnBlank       = "SnBlank"
-	StatusCodeInvalid   = "CodeInvalid"
-	StatusAppIdInvalid  = "AppIdInvalid"
-	StatusDeviceInfoErr = "DeviceInfoError"
-	StatusOpenIdInvalid = "OpenIdInvalid"
+	StatusSuccess             = "Success"
+	StatusError               = "Error"
+	StatusSnBlank             = "SnBlank"
+	StatusCodeInvalid         = "CodeInvalid"
+	StatusAppIdInvalid        = "AppIdInvalid"
+	StatusDeviceInfoErr       = "DeviceInfoError"
+	StatusOpenIdInvalid       = "OpenIdInvalid"
+	StatusPhoneInvalid        = "PhoneInvalid"
+	StatusUuIDInvalid         = "UuidInvalid"
+	StatusSignNameInvalid     = "SignNameInvalid"
+	StatusAccessKeyInvalid    = "AccessKey"
+	StatusAccessSecretInvalid = "AccessSecret"
+	StatusSmsCodeInvalid      = "SmsCodeInvalid"
 )
 
 // StatusCodes 定义状态和提示信息
@@ -46,5 +52,17 @@ var StatusCodes = map[string]StatusMessage{
 	"OpenIdInvalid": {
 		Code:    0,
 		Message: "无效的 OpenId",
+	},
+	"UuiDInvalid": {
+		Code:    0,
+		Message: "无效的 UuId",
+	},
+	"SignNameInvalid": {
+		Code:    0,
+		Message: "无效的 SignName",
+	},
+	"SmsCodeInvalid": {
+		Code:    0,
+		Message: "无效的 SmsCode",
 	},
 }

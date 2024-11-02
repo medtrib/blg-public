@@ -1506,6 +1506,25 @@ paths:
                 "200":
                     description: OK
                     content: {}
+    /v1/sms/addSmsConfig:
+        post:
+            tags:
+                - Sms
+            description: 增加短信配置
+            operationId: Sms_AddSmsConfig
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.sms.v1.AddSmsConfigRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.sms.v1.Reply'
     /v1/sms/sendSms:
         post:
             tags:
@@ -2373,6 +2392,19 @@ components:
                 password:
                     type: string
                     description: 密码
+        api.sms.v1.AddSmsConfigRequest:
+            type: object
+            properties:
+                signName:
+                    type: string
+                    description: 短信签名
+                accessKey:
+                    type: string
+                    description: 短信KEY
+                accessSecret:
+                    type: string
+                    description: 短信密钥
+            description: 增加短信配置
         api.sms.v1.Reply:
             type: object
             properties:
@@ -2434,6 +2466,9 @@ components:
                 appId:
                     type: string
                     description: 应用AppId，不能为空
+                smsCode:
+                    type: string
+                    description: 短信验证码
             description: 用户合并账号
         api.user.v1.UserRegRequest:
             type: object

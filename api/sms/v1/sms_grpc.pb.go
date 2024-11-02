@@ -19,13 +19,16 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Sms_SendSms_FullMethodName = "/api.sms.v1.Sms/SendSms"
+	Sms_AddSmsConfig_FullMethodName = "/api.sms.v1.Sms/AddSmsConfig"
+	Sms_SendSms_FullMethodName      = "/api.sms.v1.Sms/SendSms"
 )
 
 // SmsClient is the client API for Sms service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SmsClient interface {
+	// 增加短信配置
+	AddSmsConfig(ctx context.Context, in *AddSmsConfigRequest, opts ...grpc.CallOption) (*Reply, error)
 	// 发送短信
 	SendSms(ctx context.Context, in *SendSmsRequest, opts ...grpc.CallOption) (*Reply, error)
 }
@@ -36,6 +39,16 @@ type smsClient struct {
 
 func NewSmsClient(cc grpc.ClientConnInterface) SmsClient {
 	return &smsClient{cc}
+}
+
+func (c *smsClient) AddSmsConfig(ctx context.Context, in *AddSmsConfigRequest, opts ...grpc.CallOption) (*Reply, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Reply)
+	err := c.cc.Invoke(ctx, Sms_AddSmsConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *smsClient) SendSms(ctx context.Context, in *SendSmsRequest, opts ...grpc.CallOption) (*Reply, error) {
@@ -52,6 +65,8 @@ func (c *smsClient) SendSms(ctx context.Context, in *SendSmsRequest, opts ...grp
 // All implementations must embed UnimplementedSmsServer
 // for forward compatibility.
 type SmsServer interface {
+	// 增加短信配置
+	AddSmsConfig(context.Context, *AddSmsConfigRequest) (*Reply, error)
 	// 发送短信
 	SendSms(context.Context, *SendSmsRequest) (*Reply, error)
 	mustEmbedUnimplementedSmsServer()
@@ -64,6 +79,9 @@ type SmsServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSmsServer struct{}
 
+func (UnimplementedSmsServer) AddSmsConfig(context.Context, *AddSmsConfigRequest) (*Reply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddSmsConfig not implemented")
+}
 func (UnimplementedSmsServer) SendSms(context.Context, *SendSmsRequest) (*Reply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendSms not implemented")
 }
@@ -86,6 +104,24 @@ func RegisterSmsServer(s grpc.ServiceRegistrar, srv SmsServer) {
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&Sms_ServiceDesc, srv)
+}
+
+func _Sms_AddSmsConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddSmsConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SmsServer).AddSmsConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Sms_AddSmsConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SmsServer).AddSmsConfig(ctx, req.(*AddSmsConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Sms_SendSms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -113,6 +149,10 @@ var Sms_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "api.sms.v1.Sms",
 	HandlerType: (*SmsServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddSmsConfig",
+			Handler:    _Sms_AddSmsConfig_Handler,
+		},
 		{
 			MethodName: "SendSms",
 			Handler:    _Sms_SendSms_Handler,

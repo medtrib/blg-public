@@ -40,6 +40,8 @@ message UserMergeAccountRequest {
 	string openId = 2;
 	// 应用AppId，不能为空
 	string appId = 3;
+	// 短信验证码
+	string smsCode = 4;
 }
 
 

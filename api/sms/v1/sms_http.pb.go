@@ -19,16 +19,42 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
+const OperationSmsAddSmsConfig = "/api.sms.v1.Sms/AddSmsConfig"
 const OperationSmsSendSms = "/api.sms.v1.Sms/SendSms"
 
 type SmsHTTPServer interface {
+	// AddSmsConfig 增加短信配置
+	AddSmsConfig(context.Context, *AddSmsConfigRequest) (*Reply, error)
 	// SendSms 发送短信
 	SendSms(context.Context, *SendSmsRequest) (*Reply, error)
 }
 
 func RegisterSmsHTTPServer(s *http.Server, srv SmsHTTPServer) {
 	r := s.Route("/")
+	r.POST("/v1/sms/addSmsConfig", _Sms_AddSmsConfig0_HTTP_Handler(srv))
 	r.POST("/v1/sms/sendSms", _Sms_SendSms0_HTTP_Handler(srv))
+}
+
+func _Sms_AddSmsConfig0_HTTP_Handler(srv SmsHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in AddSmsConfigRequest
+		if err := ctx.Bind(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, OperationSmsAddSmsConfig)
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.AddSmsConfig(ctx, req.(*AddSmsConfigRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*Reply)
+		return ctx.Result(200, reply)
+	}
 }
 
 func _Sms_SendSms0_HTTP_Handler(srv SmsHTTPServer) func(ctx http.Context) error {
@@ -54,6 +80,7 @@ func _Sms_SendSms0_HTTP_Handler(srv SmsHTTPServer) func(ctx http.Context) error 
 }
 
 type SmsHTTPClient interface {
+	AddSmsConfig(ctx context.Context, req *AddSmsConfigRequest, opts ...http.CallOption) (rsp *Reply, err error)
 	SendSms(ctx context.Context, req *SendSmsRequest, opts ...http.CallOption) (rsp *Reply, err error)
 }
 
@@ -63,6 +90,19 @@ type SmsHTTPClientImpl struct {
 
 func NewSmsHTTPClient(client *http.Client) SmsHTTPClient {
 	return &SmsHTTPClientImpl{client}
+}
+
+func (c *SmsHTTPClientImpl) AddSmsConfig(ctx context.Context, in *AddSmsConfigRequest, opts ...http.CallOption) (*Reply, error) {
+	var out Reply
+	pattern := "/v1/sms/addSmsConfig"
+	path := binding.EncodeURL(pattern, in, false)
+	opts = append(opts, http.Operation(OperationSmsAddSmsConfig))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, nil
 }
 
 func (c *SmsHTTPClientImpl) SendSms(ctx context.Context, in *SendSmsRequest, opts ...http.CallOption) (*Reply, error) {

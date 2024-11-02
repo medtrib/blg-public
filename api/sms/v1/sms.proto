@@ -9,6 +9,14 @@ option java_multiple_files = true;
 option java_package = "api.sms.v1";
 
 service Sms {
+	// 增加短信配置
+	rpc AddSmsConfig(AddSmsConfigRequest) returns (Reply){
+		option (google.api.http) = {
+			post: "/v1/sms/addSmsConfig"
+			body: "*"
+		};
+	}
+
 	// 发送短信
 	rpc SendSms (SendSmsRequest) returns (Reply){
 		option (google.api.http) = {
@@ -17,6 +25,17 @@ service Sms {
 		};
 	}
 }
+
+// 增加短信配置
+message AddSmsConfigRequest{
+	// 短信签名
+	string  sign_name = 1;
+	// 短信KEY
+	string access_key = 2;
+	// 短信密钥
+	string access_secret = 3;
+}
+
 
 // 发送短信参数
 message SendSmsRequest{
